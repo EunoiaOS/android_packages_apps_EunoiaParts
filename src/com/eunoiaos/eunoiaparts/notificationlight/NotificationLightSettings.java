@@ -116,8 +116,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         PreferenceGroup mGeneralPrefs = prefSet.findPreference(GENERAL_SECTION);
 
         // Get the system defined default notification color
-        mDefaultColor =
-                resources.getColor(com.android.internal.R.color.config_defaultNotificationColor, null);
+        mDefaultColor = resources.getColor(
+                com.android.internal.R.color.config_defaultNotificationColor, null);
 
         mDefaultLedOn = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOn);
@@ -197,7 +197,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             mGeneralPrefs.removePreference(mAutoGenerateColors);
         } else {
             mAutoGenerateColors.setOnPreferenceChangeListener(this);
-            watch(EunoiaSettings.System.getUriFor(EunoiaSettings.System.NOTIFICATION_LIGHT_COLOR_AUTO));
+            watch(EunoiaSettings.System.getUriFor(
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_COLOR_AUTO));
         }
 
         watch(Settings.System.getUriFor(Settings.System.NOTIFICATION_LIGHT_PULSE));
@@ -374,7 +375,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     }
 
     private boolean parsePackageList() {
-        final String baseString = EunoiaSettings.System.getString(getActivity().getContentResolver(),
+        final String baseString = EunoiaSettings.System.getString(
+                getActivity().getContentResolver(),
                 EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_VALUES);
 
         if (TextUtils.equals(mPackageList, baseString)) {
@@ -412,7 +414,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             mPackageList = value;
         }
         EunoiaSettings.System.putString(getActivity().getContentResolver(),
-                                  EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_VALUES, value);
+                EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_VALUES, value);
     }
 
     /**
@@ -423,25 +425,35 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
      * @param timeon
      * @param timeoff
      */
-    protected void updateValues(String packageName, Integer color, Integer timeon, Integer timeoff) {
+    protected void updateValues(String packageName, Integer color, Integer timeon,
+                                Integer timeoff) {
         ContentResolver resolver = getActivity().getContentResolver();
 
         if (packageName.equals(DEFAULT_PREF)) {
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, color);
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON, timeon);
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF, timeoff);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, color);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON, timeon);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF, timeoff);
             refreshDefault();
             return;
         } else if (packageName.equals(MISSED_CALL_PREF)) {
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_COLOR, color);
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_LED_ON, timeon);
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF, timeoff);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_COLOR, color);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_LED_ON, timeon);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF, timeoff);
             refreshDefault();
             return;
         } else if (packageName.equals(VOICEMAIL_PREF)) {
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, color);
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON, timeon);
-            EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, timeoff);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, color);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON, timeon);
+            EunoiaSettings.System.putInt(resolver,
+                    EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, timeoff);
             refreshDefault();
             return;
         }
@@ -460,9 +472,12 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         ContentResolver resolver = getActivity().getContentResolver();
 
         // Reset to the framework default colors
-        EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
-        EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_COLOR, mDefaultColor);
-        EunoiaSettings.System.putInt(resolver, EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, mDefaultColor);
+        EunoiaSettings.System.putInt(resolver,
+                EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR, mDefaultColor);
+        EunoiaSettings.System.putInt(resolver,
+                EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CALL_COLOR, mDefaultColor);
+        EunoiaSettings.System.putInt(resolver,
+                EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, mDefaultColor);
 
         refreshDefault();
     }

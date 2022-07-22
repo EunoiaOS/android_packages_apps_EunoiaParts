@@ -89,7 +89,8 @@ public class EunoiaPartsSearchIndexablesProvider extends SearchIndexablesProvide
             ref[COLUMN_INDEX_XML_RES_CLASS_NAME] = null;
             ref[COLUMN_INDEX_XML_RES_ICON_RESID] = R.drawable.ic_launcher_eunoiaos;
             ref[COLUMN_INDEX_XML_RES_INTENT_ACTION] = i.getAction();
-            ref[COLUMN_INDEX_XML_RES_INTENT_TARGET_PACKAGE] = EUNOIAPARTS_ACTIVITY.getPackageName();
+            ref[COLUMN_INDEX_XML_RES_INTENT_TARGET_PACKAGE] = EUNOIAPARTS_ACTIVITY.
+                    getPackageName();
             ref[COLUMN_INDEX_XML_RES_INTENT_TARGET_CLASS] = EUNOIAPARTS_ACTIVITY.getClassName();
             cursor.addRow(ref);
         }

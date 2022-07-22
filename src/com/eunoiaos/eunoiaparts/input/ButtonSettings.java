@@ -385,7 +385,8 @@ public class ButtonSettings extends SettingsPreferenceFragment
                     EunoiaSettings.System.KEY_APP_SWITCH_ACTION, Action.APP_SWITCH);
             mAppSwitchPressAction = initList(KEY_APP_SWITCH_PRESS, pressAction);
 
-            mAppSwitchLongPressAction = initList(KEY_APP_SWITCH_LONG_PRESS, appSwitchLongPressAction);
+            mAppSwitchLongPressAction = initList(KEY_APP_SWITCH_LONG_PRESS,
+                    appSwitchLongPressAction);
 
             hasAnyBindableKey = true;
         }
@@ -402,7 +403,8 @@ public class ButtonSettings extends SettingsPreferenceFragment
                 prefScreen.removePreference(mCameraWakeScreen);
             }
             // Only show 'Camera sleep on release' if the device has a focus key
-            if (res.getBoolean(com.eunoiaos.platform.internal.R.bool.config_singleStageCameraKey)) {
+            if (res.getBoolean(
+                    com.eunoiaos.platform.internal.R.bool.config_singleStageCameraKey)) {
                 prefScreen.removePreference(mCameraSleepOnRelease);
             }
         }
