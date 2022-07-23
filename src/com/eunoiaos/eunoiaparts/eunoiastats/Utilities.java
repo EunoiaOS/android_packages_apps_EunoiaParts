@@ -27,7 +27,6 @@ import android.text.TextUtils;
 import eunoiaos.providers.EunoiaSettings;
 
 import java.math.BigInteger;
-import java.net.NetworkInterface;
 import java.security.MessageDigest;
 import java.util.Locale;
 

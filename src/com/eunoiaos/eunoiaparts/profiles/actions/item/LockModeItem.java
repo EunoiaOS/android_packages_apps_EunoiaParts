@@ -23,7 +23,7 @@ import com.eunoiaos.eunoiaparts.R;
 import eunoiaos.app.Profile;
 
 public class LockModeItem extends Item {
-    Profile mProfile;
+    private final Profile mProfile;
 
     public LockModeItem(Profile profile) {
         mProfile = profile;
