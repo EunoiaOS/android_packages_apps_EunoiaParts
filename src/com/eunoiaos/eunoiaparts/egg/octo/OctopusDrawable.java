@@ -86,7 +86,7 @@ public class OctopusDrawable extends Drawable {
                     14f, 2f);
         }
 
-        mEyeLogo = context.getResources().getDrawable(R.drawable.logo_eunoia);
+        mEyeLogo = context.getResources().getDrawable(R.drawable.logo_eunoia, context.getTheme());
     }
 
     public void setSizePx(int size) {
