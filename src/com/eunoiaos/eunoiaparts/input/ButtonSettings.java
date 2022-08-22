@@ -412,16 +412,15 @@ public class ButtonSettings extends SettingsPreferenceFragment
             mVolumeKeyCursorControl = initList(KEY_VOLUME_KEY_CURSOR_CONTROL,
                     cursorControlAction);
 
-            int swapVolumeKeys = EunoiaSettings.System.getInt(getContentResolver(),
+            int swapVolumeKeys = EunoiaSettings.System.getInt(resolver,
                     EunoiaSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, 0);
             mSwapVolumeButtons = prefScreen.findPreference(KEY_SWAP_VOLUME_BUTTONS);
             if (mSwapVolumeButtons != null) {
                 mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
             }
 
-            final boolean volumePanelOnLeft = EunoiaSettings.Secure.getIntForUser(
-                    getContentResolver(), EunoiaSettings.Secure.VOLUME_PANEL_ON_LEFT, 0,
-                    UserHandle.USER_CURRENT) != 0;
+            final boolean volumePanelOnLeft = EunoiaSettings.Secure.getIntForUser(resolver,
+                    EunoiaSettings.Secure.VOLUME_PANEL_ON_LEFT, 0, UserHandle.USER_CURRENT) != 0;
             mVolumePanelOnLeft = prefScreen.findPreference(KEY_VOLUME_PANEL_ON_LEFT);
             if (mVolumePanelOnLeft != null) {
                 mVolumePanelOnLeft.setChecked(volumePanelOnLeft);
@@ -478,7 +477,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
                 mNavigationPreferencesCat.removePreference(mEnableTaskbar);
             } else {
                 mEnableTaskbar.setOnPreferenceChangeListener(this);
-                mEnableTaskbar.setChecked(EunoiaSettings.System.getInt(getContentResolver(),
+                mEnableTaskbar.setChecked(EunoiaSettings.System.getInt(resolver,
                         EunoiaSettings.System.ENABLE_TASKBAR,
                         isTablet(getContext()) ? 1 : 0) == 1);
                 toggleTaskBarDependencies(mEnableTaskbar.isChecked());
