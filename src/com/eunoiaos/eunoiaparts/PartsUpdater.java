@@ -20,17 +20,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.eunoiaos.internal.eunoiaparts.PartInfo;
-import com.eunoiaos.internal.eunoiaparts.PartsList;
+import eunoiaos.preference.PartInfo;
+import eunoiaos.preference.PartsList;
 
 import java.lang.reflect.Field;
 
 import eunoiaos.preference.RemotePreferenceUpdater;
 import eunoiaos.preference.SettingsHelper;
 
+import static eunoiaos.preference.PartsList.EXTRA_PART;
 import static eunoiaos.preference.RemotePreference.EXTRA_KEY;
 import static eunoiaos.preference.RemotePreference.EXTRA_SUMMARY;
-import static com.eunoiaos.internal.eunoiaparts.PartsList.EXTRA_PART;
 
 /**
  * PartsRefresher keeps remote UI clients up to date with any changes in the

@@ -22,9 +22,10 @@ import android.provider.SearchIndexablesProvider;
 import android.util.ArraySet;
 import android.util.Log;
 
+import eunoiaos.preference.PartInfo;
+import eunoiaos.preference.PartsList;
+
 import com.eunoiaos.eunoiaparts.search.Searchable.SearchIndexProvider;
-import com.eunoiaos.internal.eunoiaparts.PartInfo;
-import com.eunoiaos.internal.eunoiaparts.PartsList;
 import com.eunoiaos.platform.internal.R;
 
 import java.lang.reflect.Field;
@@ -59,7 +60,8 @@ import static android.provider.SearchIndexablesContract.COLUMN_INDEX_XML_RES_RES
 import static android.provider.SearchIndexablesContract.INDEXABLES_RAW_COLUMNS;
 import static android.provider.SearchIndexablesContract.INDEXABLES_XML_RES_COLUMNS;
 import static android.provider.SearchIndexablesContract.NON_INDEXABLES_KEYS_COLUMNS;
-import static com.eunoiaos.internal.eunoiaparts.PartsList.EUNOIAPARTS_ACTIVITY;
+
+import static eunoiaos.preference.PartsList.EUNOIAPARTS_ACTIVITY;
 
 /**
  * Provides search metadata to the Settings app
