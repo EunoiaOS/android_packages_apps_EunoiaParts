@@ -91,7 +91,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarClockCategory = getPreferenceScreen().findPreference(CATEGORY_CLOCK);
 
         mStatusBarBatteryShowPercent = findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
-        LineageSystemSettingListPreference statusBarBattery =
+        EunoiaSystemSettingListPreference statusBarBattery =
                 findPreference(STATUS_BAR_BATTERY_STYLE);
         statusBarBattery.setOnPreferenceChangeListener(this);
         enableStatusBarBatteryDependents(statusBarBattery.getIntValue(2));
