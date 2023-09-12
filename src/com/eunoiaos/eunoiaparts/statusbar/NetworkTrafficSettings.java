@@ -29,11 +29,21 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
     private static final int POSITION_CENTER = 1;
     private static final int POSITION_END = 2;
 
+    private static final int UNITS_KILOBITS = 0;
+    private static final int UNITS_MEGABITS = 1;
+    private static final int UNITS_KILOBYTES = 2;
+    private static final int UNITS_MEGABYTES = 3;
+    private static final int UNITS_AUTOBYTES = 4;
+
+    private static final int SHOW_UNITS_OFF = 0;
+    private static final int SHOW_UNITS_ON = 1;
+    private static final int SHOW_UNITS_COMPACT = 2;
+
     private DropDownPreference mNetTrafficMode;
     private DropDownPreference mNetTrafficPosition;
     private EunoiaSecureSettingSwitchPreference mNetTrafficAutohide;
     private DropDownPreference mNetTrafficUnits;
-    private EunoiaSecureSettingSwitchPreference mNetTrafficShowUnits;
+    private DropDownPreference mNetTrafficShowUnits;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,11 +100,12 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         mNetTrafficUnits = findPreference(EunoiaSettings.Secure.NETWORK_TRAFFIC_UNITS);
         mNetTrafficUnits.setOnPreferenceChangeListener(this);
         int units = EunoiaSettings.Secure.getInt(resolver,
-                EunoiaSettings.Secure.NETWORK_TRAFFIC_UNITS, /* Mbps */ 1);
+                EunoiaSettings.Secure.NETWORK_TRAFFIC_UNITS, UNITS_KILOBYTES);
         mNetTrafficUnits.setValue(String.valueOf(units));
 
         mNetTrafficShowUnits = findPreference(EunoiaSettings.Secure.NETWORK_TRAFFIC_SHOW_UNITS);
         mNetTrafficShowUnits.setOnPreferenceChangeListener(this);
+        adjustShowUnitsState(units, resolver);
 
         updateEnabledStates(mode);
     }
@@ -114,8 +125,46 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
             int units = Integer.parseInt((String) newValue);
             EunoiaSettings.Secure.putInt(getActivity().getContentResolver(),
                     EunoiaSettings.Secure.NETWORK_TRAFFIC_UNITS, units);
+            adjustShowUnitsState(units, getActivity().getContentResolver());
+        } else if (preference == mNetTrafficShowUnits) {
+            int showUnits = Integer.valueOf((String) newValue);
+            EunoiaSettings.Secure.putInt(getActivity().getContentResolver(),
+                    EunoiaSettings.Secure.NETWORK_TRAFFIC_SHOW_UNITS, showUnits);
         }
         return true;
+    }
+
+    private void adjustShowUnitsState(int units, ContentResolver resolver) {
+        int showUnits = EunoiaSettings.Secure.getInt(resolver,
+                EunoiaSettings.Secure.NETWORK_TRAFFIC_SHOW_UNITS, SHOW_UNITS_ON);
+        if (units == UNITS_KILOBYTES || units == UNITS_MEGABYTES) {
+            // off, on, compact
+            mNetTrafficShowUnits.setEntries(R.array.network_traffic_show_units_entries);
+            mNetTrafficShowUnits.setEntryValues(R.array.network_traffic_show_units_values);
+        } else {
+            boolean putShowUnits = false;
+            if (units == UNITS_AUTOBYTES) {
+                if (showUnits == SHOW_UNITS_OFF) {
+                    showUnits = SHOW_UNITS_COMPACT;
+                    putShowUnits = true;
+                }
+                // on, compact
+                mNetTrafficShowUnits.setEntries(R.array.network_traffic_show_units_entries_auto);
+                mNetTrafficShowUnits.setEntryValues(R.array.network_traffic_show_units_values_auto);
+            } else {
+                if (showUnits == SHOW_UNITS_COMPACT) {
+                    showUnits = SHOW_UNITS_ON;
+                    putShowUnits = true;
+                }
+                // off, on
+                mNetTrafficShowUnits.setEntries(R.array.network_traffic_show_units_entries_bits);
+                mNetTrafficShowUnits.setEntryValues(R.array.network_traffic_show_units_values_bits);
+            }
+            if (putShowUnits)
+                EunoiaSettings.Secure.putInt(resolver,
+                        EunoiaSettings.Secure.NETWORK_TRAFFIC_SHOW_UNITS, showUnits);
+        }
+        mNetTrafficShowUnits.setValue(String.valueOf(showUnits));
     }
 
     private void updateEnabledStates(int mode) {
