@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2012 The CyanogenMod Project
- *               2017-2022 The LineageOS Project
+ *               2017-2023 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.ArraySet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -39,6 +40,8 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 
 import com.eunoiaos.internal.notification.LightsCapabilities;
+import com.eunoiaos.eunoiaparts.search.BaseSearchIndexProvider;
+import com.eunoiaos.eunoiaparts.search.Searchable;
 import com.eunoiaos.eunoiaparts.widget.PackageListAdapter;
 import com.eunoiaos.eunoiaparts.widget.PackageListAdapter.PackageItem;
 import com.eunoiaos.eunoiaparts.R;
@@ -49,6 +52,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import eunoiaos.preference.EunoiaSystemSettingSwitchPreference;
 import eunoiaos.preference.SystemSettingMainSwitchPreference;
@@ -56,8 +60,23 @@ import eunoiaos.providers.EunoiaSettings;
 import eunoiaos.util.ColorUtils;
 
 public class NotificationLightSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener, ApplicationLightPreference.ItemLongClickListener {
+        ApplicationLightPreference.ItemLongClickListener, Preference.OnPreferenceChangeListener,
+        Searchable {
     private static final String TAG = "NotificationLightSettings";
+
+    private static final String KEY_NOTIFICATION_LIGHTS = "notification_lights";
+    private static final String NOTIFICATION_LIGHT_PULSE =
+            Settings.System.NOTIFICATION_LIGHT_PULSE;
+    private static final String NOTIFICATION_LIGHT_COLOR_AUTO =
+            EunoiaSettings.System.NOTIFICATION_LIGHT_COLOR_AUTO;
+    private static final String NOTIFICATION_LIGHT_SCREEN_ON =
+            EunoiaSettings.System.NOTIFICATION_LIGHT_SCREEN_ON;
+    private static final String NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE =
+            EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE;
+    private static final String NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL =
+            EunoiaSettings.System.NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL;
+    private static final String NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL_ZEN =
+            EunoiaSettings.System.NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL_ZEN;
 
     private static final String ADVANCED_SECTION = "advanced_section";
     private static final String APPLICATION_SECTION = "applications_list";
@@ -126,19 +145,17 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mMultiColorLed = LightsCapabilities.supports(
                 context, LightsCapabilities.LIGHTS_RGB_NOTIFICATION_LED);
 
-        mEnabledPref = findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE);
+        mEnabledPref = findPreference(NOTIFICATION_LIGHT_PULSE);
         mEnabledPref.setOnPreferenceChangeListener(this);
 
         mDefaultPref = findPreference(DEFAULT_PREF);
 
-        mAutoGenerateColors = findPreference(EunoiaSettings.System.NOTIFICATION_LIGHT_COLOR_AUTO);
+        mAutoGenerateColors = findPreference(NOTIFICATION_LIGHT_COLOR_AUTO);
 
         // Advanced light settings
-        mScreenOnLightsPref =
-                findPreference(EunoiaSettings.System.NOTIFICATION_LIGHT_SCREEN_ON);
+        mScreenOnLightsPref = findPreference(NOTIFICATION_LIGHT_SCREEN_ON);
         mScreenOnLightsPref.setOnPreferenceChangeListener(this);
-        mCustomEnabledPref =
-                findPreference(EunoiaSettings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
+        mCustomEnabledPref = findPreference(NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
         if (!mMultiColorLed && !halAdjustableBrightness) {
             removePreference(BRIGHTNESS_SECTION);
         }
@@ -190,11 +207,10 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             mGeneralPrefs.removePreference(mAutoGenerateColors);
         } else {
             mAutoGenerateColors.setOnPreferenceChangeListener(this);
-            watch(EunoiaSettings.System.getUriFor(
-                    EunoiaSettings.System.NOTIFICATION_LIGHT_COLOR_AUTO));
+            watch(EunoiaSettings.System.getUriFor(NOTIFICATION_LIGHT_COLOR_AUTO));
         }
 
-        watch(Settings.System.getUriFor(Settings.System.NOTIFICATION_LIGHT_PULSE));
+        watch(Settings.System.getUriFor(NOTIFICATION_LIGHT_PULSE));
     }
 
     @Override
@@ -335,7 +351,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     private int getInitialColorForPackage(String packageName) {
         boolean autoColor = EunoiaSettings.System.getInt(getActivity().getContentResolver(),
-                EunoiaSettings.System.NOTIFICATION_LIGHT_COLOR_AUTO, mMultiColorLed ? 1 : 0) == 1;
+                NOTIFICATION_LIGHT_COLOR_AUTO, mMultiColorLed ? 1 : 0) == 1;
         int color = mDefaultColor;
         if (autoColor) {
             try {
@@ -592,13 +608,56 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     public static final SummaryProvider SUMMARY_PROVIDER = (context, key) -> {
         if (Settings.System.getInt(context.getContentResolver(),
-                Settings.System.NOTIFICATION_LIGHT_PULSE, 1) == 1) {
+                NOTIFICATION_LIGHT_PULSE, 1) == 1) {
             if (EunoiaSettings.System.getInt(context.getContentResolver(),
-                    EunoiaSettings.System.NOTIFICATION_LIGHT_COLOR_AUTO, 1) == 1) {
+                    NOTIFICATION_LIGHT_COLOR_AUTO, 1) == 1) {
                 return context.getString(R.string.notification_light_automagic_summary);
             }
             return context.getString(R.string.enabled);
         }
         return context.getString(R.string.disabled);
+    };
+
+    public static final Searchable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+
+        @Override
+        public Set<String> getNonIndexableKeys(Context context) {
+            final Set<String> result = new ArraySet<>();
+
+            TelephonyManager tm = context.getSystemService(TelephonyManager.class);
+
+            if (!context.getResources().getBoolean(com.android.internal.R.bool
+                    .config_intrusiveNotificationLed)) {
+                result.add(KEY_NOTIFICATION_LIGHTS);
+                result.add(NOTIFICATION_LIGHT_PULSE);
+            }
+            if (!LightsCapabilities.supports(context, LightsCapabilities.LIGHTS_PULSATING_LED) &&
+                    !LightsCapabilities.supports(context,
+                            LightsCapabilities.LIGHTS_RGB_NOTIFICATION_LED)) {
+                result.add(GENERAL_SECTION);
+                result.add(NOTIFICATION_LIGHT_COLOR_AUTO);
+                result.add(DEFAULT_PREF);
+                result.add(ADVANCED_SECTION);
+                result.add(NOTIFICATION_LIGHT_SCREEN_ON);
+                result.add(NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
+                result.add(PHONE_SECTION);
+                result.add(MISSED_CALL_PREF);
+                result.add(VOICEMAIL_PREF);
+                result.add(APPLICATION_SECTION);
+                result.add(ADD_APPS);
+            } else if (tm.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE) {
+                result.add(PHONE_SECTION);
+                result.add(MISSED_CALL_PREF);
+                result.add(VOICEMAIL_PREF);
+            }
+            if (!LightsCapabilities.supports(context,
+                    LightsCapabilities.LIGHTS_ADJUSTABLE_BATTERY_LED_BRIGHTNESS)) {
+                result.add(BRIGHTNESS_SECTION);
+                result.add(NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL);
+                result.add(NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL_ZEN);
+            }
+            return result;
+        }
     };
 }
