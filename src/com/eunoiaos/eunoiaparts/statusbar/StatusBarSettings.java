@@ -5,26 +5,21 @@
  */
 package com.eunoiaos.eunoiaparts.statusbar;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.format.DateFormat;
 import android.text.TextUtils;
-import android.util.ArraySet;
+import android.text.format.DateFormat;
 import android.view.View;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
-
-import eunoiaos.preference.EunoiaSystemSettingListPreference;
-import eunoiaos.providers.EunoiaSettings;
 
 import com.eunoiaos.eunoiaparts.R;
 import com.eunoiaos.eunoiaparts.SettingsPreferenceFragment;
 import com.eunoiaos.eunoiaparts.utils.DeviceUtils;
 
-import java.util.Set;
+import eunoiaos.preference.EunoiaSystemSettingListPreference;
+import eunoiaos.providers.EunoiaSettings;
 
 public class StatusBarSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {

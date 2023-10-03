@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2017,2019-2022 The LineageOS Project
+ * SPDX-FileCopyrightText: 2017-2023 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -21,13 +21,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import eunoiaos.providers.EunoiaSettings;
-
 import com.eunoiaos.internal.notification.LightsCapabilities;
-import com.eunoiaos.internal.notification.EunoiaNotification;
 import com.eunoiaos.eunoiaparts.widget.CustomDialogPreference;
 import com.eunoiaos.eunoiaparts.R;
 
