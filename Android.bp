@@ -15,7 +15,7 @@
  */
 
 android_app {
-    name: "LineageParts",
+    name: "EunoiaParts",
 
     // Include SettingsLib and it's dependencies
     defaults: ["SettingsLibDefaults"],
@@ -40,19 +40,19 @@ android_app {
         "androidx.palette_palette",
         "androidx.recyclerview_recyclerview",
         "jsr305",
-        "org.lineageos.platform.internal",
+        "com.eunoiaos.platform.internal",
         "SystemUISharedLib",
     ],
 
     required: [
-        "privapp_whitelist_org.lineageos.lineageparts"
+        "privapp_whitelist_com.eunoiaos.eunoiaparts"
     ],
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_org.lineageos.lineageparts",
+    name: "privapp_whitelist_com.eunoiaos.eunoiaparts",
     system_ext_specific: true,
     sub_dir: "permissions",
-    src: "privapp_whitelist_org.lineageos.lineageparts.xml",
+    src: "privapp_whitelist_com.eunoiaos.eunoiaparts.xml",
     filename_from_src: true,
 }
