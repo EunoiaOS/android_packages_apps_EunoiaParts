@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2015 The CyanogenMod Project
-	              2024 The EunoiaOS Project
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
+     SPDX-FileCopyrightText: 2015 The CyanogenMod Project
+     SPDX-FileCopyrightText: 2024 The EunoiaOS Project
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="eunoiaparts_title">Configuració de EunoiaOS</string>
@@ -59,6 +48,20 @@
     <string name="light_brightness_title">Nivells de lluminositat</string>
     <string name="light_brightness_normal">Normal</string>
     <string name="light_brightness_zen">No molestis</string>
+    <string name="charging_control_title">Control de càrrega</string>
+    <string name="charging_control_enable_title">Activa el control de càrrega</string>
+    <string name="charging_control_mode_title">Mode de càrrega</string>
+    <string name="charging_control_mode_auto_title">Programació automàtica</string>
+    <string name="charging_control_mode_auto_summary">Determina automàticament quan s\'ha de començar a carregar en funció de les alarmes establertes</string>
+    <string name="charging_control_mode_custom_title">Programació personalitzada</string>
+    <string name="charging_control_mode_custom_summary">Estableix un temps objectiu per a la càrrega completa</string>
+    <string name="charging_control_mode_limit_title">Limita la càrrega</string>
+    <string name="charging_control_mode_limit_summary">Limiteu la càrrega a un percentatge determinat</string>
+    <string name="charging_control_start_time_title">Hora d\'inici</string>
+    <string name="charging_control_start_time_summary">El control de càrrega s\'activa quan comenceu a carregar després de %s</string>
+    <string name="charging_control_target_time_title">Temps de finalització de la càrrega</string>
+    <string name="charging_control_target_time_summary">La bateria es carregarà completament en %s</string>
+    <string name="charging_control_limit_title">Límit</string>
     <string name="battery_light_title">Llum de la bateria</string>
     <string name="battery_light_enable_title">Activa la llum de la bateria</string>
     <string name="battery_low_pulse_title">Parpalleja si la bateria està baixa</string>
@@ -84,6 +87,7 @@
     <string name="notification_light_automagic_summary">S\'estan triant els colors automàticament</string>
     <string name="led_notification_title">Configuració de llums</string>
     <string name="led_notification_text">Llum LED habilitada per la configuració</string>
+    <string name="notification_light_add_apps_empty_summary">Per afegir un control per aplicació, activeu «%1$s» i premeu «Afegeix»</string>
     <string name="live_display_summary">Optimitza la teva pantalla basant-se en l\'hora del dia i les condicions ambientals per millorar la llegibilitat i reduir la fatiga ocular</string>
     <string name="live_display_mode">Mode de pantalla</string>
     <string name="live_display_color_temperature_title">Temperatura del color</string>
@@ -199,6 +203,7 @@
     <string name="swap_capacitive_keys_title">Canvia els botons capacitius</string>
     <string name="swap_capacitive_keys_summary">Canvia l\'ordre dels botons recent i enrere</string>
     <string name="navigation_bar_category">Barra de navegació</string>
+    <string name="navigation_bar_enable_taskbar_title">Activa la barra de tasques</string>
     <string name="navigation_bar_invert_layout_title">Inverteix la disposició</string>
     <string name="navigation_bar_invert_layout_summary">Inverteix la disposició de la barra de navegació i altres elements, com ara el commutador IME</string>
     <string name="navigation_bar_left_summary">Col·loca la barra de navegació al costat esquerre de la pantalla en el mode horitzontal</string>
@@ -210,6 +215,7 @@
     <string name="navigation_bar_app_switch_long_press_title">Acció pulsació llarga de Recents</string>
     <string name="navigation_bar_edge_long_swipe_title">Acció de lliscament llarg a la vora</string>
     <string name="power_menu_title">Menú d\'apagat</string>
+    <string name="power_menu_items_title">Elements del menú d\'encesa</string>
     <string name="power_menu_screenshot_title">Captura de pantalla</string>
     <string name="power_menu_screenshot_summary">Pulsació llarga per a fer una captura de pantalla parcial</string>
     <string name="power_menu_airplane_title">Mode avió</string>
@@ -220,6 +226,8 @@
     <string name="power_menu_emergency_title">Emergència</string>
     <string name="power_menu_devicecontrols_title">Controls del dispositiu</string>
     <string name="power_menu_advanced_restart_title">Reinici avançat</string>
+    <string name="power_menu_advanced_restart_summary">Quan està desbloquejat, inclou opcions en el menú d\'encesa per a reiniciar al recovery o bootloader</string>
+    <string name="power_menu_emergency_affordance_enabled">L\'assequibilitat d\'emergència està activada</string>
     <string name="camera_double_tap_power_gesture_title">Prem el botó d\'apagat dues vegades per a la càmera</string>
     <string name="camera_double_tap_power_gesture_desc">Obre la càmera ràpidament sense desbloquejar la pantalla</string>
     <string name="torch_long_press_power_gesture_title">Pulsació llarga per la torxa</string>
@@ -351,6 +359,7 @@
     <string name="status_bar_clock_show_seconds_title">Mostra els segons</string>
     <string name="status_bar_clock_show_seconds_summary">Mostra hores, minuts i segons</string>
     <string name="status_bar_clock_auto_hide_title">Amaga automàticament</string>
+    <string name="status_bar_clock_auto_hide_summary">Amaga el rellotge si el launcher és visible</string>
     <string name="status_bar_clock_position_title">Posició del rellotge</string>
     <string name="status_bar_clock_position_right">Dreta</string>
     <string name="status_bar_clock_position_left">Esquerra</string>
@@ -377,8 +386,6 @@
     <string name="status_bar_brightness_slider_show_never">No mostris mai</string>
     <string name="status_bar_brightness_slider_show_expanded">Mostra quan s\'expandeix</string>
     <string name="status_bar_brightness_slider_show_always">Mostra-ho sempre</string>
-    <string name="status_bar_toggle_brightness">Control de lluminositat</string>
-    <string name="status_bar_toggle_brightness_summary">Ajusta la lluminositat lliscant a través de la barra d\'estat</string>
     <string name="network_traffic_settings_title">Monitor de trànsit de xarxa</string>
     <string name="network_traffic_settings_summary">Mostra els nivells actuals de trànsit de xarxa a la barra d\'estat</string>
     <string name="network_traffic_mode_title">Mode de pantalla</string>
@@ -386,6 +393,7 @@
     <string name="network_traffic_mode_up">Només pujada</string>
     <string name="network_traffic_mode_down">Només baixada</string>
     <string name="network_traffic_mode_all">Pujada i baixada</string>
+    <string name="network_traffic_position_title">Posició</string>
     <string name="network_traffic_autohide">Amaga automàticament</string>
     <string name="network_traffic_autohide_summary">Amaga el monitor de trànsit quan no hi hagi activitat</string>
     <string name="network_traffic_units_title">Unitats de mesura de trànsit</string>
@@ -393,7 +401,11 @@
     <string name="network_traffic_units_megabits">Megabits per segon (Mb/s)</string>
     <string name="network_traffic_units_kilobytes">Kilobytes per segon (kB/s)</string>
     <string name="network_traffic_units_megabytes">Megabytes per segon (MB/s)</string>
+    <string name="network_traffic_units_auto">Automàtic (kB/s or MB/s)</string>
     <string name="network_traffic_show_units">Mostra les unitats</string>
+    <string name="network_traffic_show_units_off">No</string>
+    <string name="network_traffic_show_units_on">Sí</string>
+    <string name="network_traffic_show_units_compact">Compacte</string>
     <string name="network_traffic_show_units_summary">Si vols mostrar les unitats de mesura del trànsit a la barra d\'estat</string>
     <string name="network_traffic_disabled_clock">Tràfic de la xarxa deshabilitat a causa de la posició de rellotge</string>
     <string name="protected_apps_manager_title">Aplicacions protegides</string>
@@ -518,6 +530,7 @@
     <string name="trust_restrict_usb_always">Denega les connexions USB</string>
     <string name="trust_restrict_usb_keyguard">Permet les connexions USB quan estigui desbloquejat</string>
     <string name="trust_restrict_usb_disabled">Permet sempre les connexions USB</string>
+    <string name="trust_summary">Manteniu el vostre dispositiu segur i protegiu la vostra privadesa</string>
     <string name="sms_security_check_limit_title">Límit de missatges SMS</string>
     <string name="sms_security_check_limit_summary">Les aplicacions poden enviar %s missatges en 1 minut abans de necessitar una confirmació</string>
     <string name="sms_security_check_limit_summary_none">Les aplicacions no tenen permès enviar cap missatge sense confirmar-ho</string>

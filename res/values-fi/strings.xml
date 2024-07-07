@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2015 The CyanogenMod Project
-	              2024 The EunoiaOS Project
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
+     SPDX-FileCopyrightText: 2015 The CyanogenMod Project
+     SPDX-FileCopyrightText: 2024 The EunoiaOS Project
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="eunoiaparts_title">EunoiaOS Asetukset</string>
@@ -108,7 +97,7 @@
     <string name="live_display_color_profile_astronomy_title">Astronomia</string>
     <string name="live_display_color_profile_astronomy_summary">Syvät punaiset värit hämärällä käytettäessä</string>
     <string name="live_display_color_profile_photography_title">Valokuvaus</string>
-    <string name="live_display_color_profile_photography_summary">Täydellinen värintoisto kuviin</string>
+    <string name="live_display_color_profile_photography_summary">Täydellinen värintoisto valokuviin.</string>
     <string name="live_display_color_profile_basic_title">Perus</string>
     <string name="live_display_color_profile_basic_summary">Käytä näyttöä kalibroimatta</string>
     <string name="live_display_color_profile_adaptive_title">Mukautuva</string>
@@ -320,7 +309,7 @@
     <string name="ring_mode_title">Äänet</string>
     <string name="ring_mode_normal">Normaali</string>
     <string name="ring_mode_vibrate">Värinä</string>
-    <string name="ring_mode_mute">Äänetön</string>
+    <string name="ring_mode_mute">Mykistys</string>
     <string name="ring_volume_title">Soittoäänen voimakkuus</string>
     <string name="incoming_call_volume_title">Soittoääni</string>
     <string name="notification_volume_title">Ilmoitus</string>
@@ -370,8 +359,6 @@
     <string name="status_bar_brightness_slider_show_never">Älä näytä koskaan</string>
     <string name="status_bar_brightness_slider_show_expanded">Näytä laajennettaessa</string>
     <string name="status_bar_brightness_slider_show_always">Näytä aina</string>
-    <string name="status_bar_toggle_brightness">Kirkkauden säätö</string>
-    <string name="status_bar_toggle_brightness_summary">Säädä kirkkautta liu\'ttamalla tilapalkkia pitkin</string>
     <string name="network_traffic_settings_title">Verkkoliikenne</string>
     <string name="network_traffic_settings_summary">Näyttää verkon nopeuden tilapalkissa</string>
     <string name="network_traffic_mode_title">Näyttötila</string>
@@ -387,6 +374,8 @@
     <string name="network_traffic_units_kilobytes">Kilotavua sekunnissa (kt/s)</string>
     <string name="network_traffic_units_megabytes">Megatavua sekunnissa (Mt/s)</string>
     <string name="network_traffic_show_units">Näytä yksiköt</string>
+    <string name="network_traffic_show_units_off">Pois</string>
+    <string name="network_traffic_show_units_on">Käytössä</string>
     <string name="network_traffic_show_units_summary">Näytä verkkoliikenteen yksiköt tilapalkissa</string>
     <string name="network_traffic_disabled_clock">Verkkoliikenne poistettu käytöstä kellon sijainnin vuoksi</string>
     <string name="protected_apps_manager_title">Suojatut sovellukset</string>

@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2015 The CyanogenMod Project
-	              2024 The EunoiaOS Project
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
+     SPDX-FileCopyrightText: 2015 The CyanogenMod Project
+     SPDX-FileCopyrightText: 2024 The EunoiaOS Project
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="eunoiaparts_title">Gosodiadau EunoiaOS</string>
@@ -59,6 +48,16 @@
     <string name="light_brightness_title">Lefelau disgleirdeb</string>
     <string name="light_brightness_normal">Arferol</string>
     <string name="light_brightness_zen">Dim Tarfu</string>
+    <string name="charging_control_title">Rheolaeth gwefru</string>
+    <string name="charging_control_enable_title">Galluogi rheolaeth gwefru</string>
+    <string name="charging_control_mode_title">Modd gwefru</string>
+    <string name="charging_control_mode_auto_title">Amserlen awtomatig</string>
+    <string name="charging_control_mode_custom_title">Amserlen addasedig</string>
+    <string name="charging_control_mode_custom_summary">Gosod amser targed i wefru\u2019n llawn</string>
+    <string name="charging_control_start_time_title">Amser dechrau</string>
+    <string name="charging_control_target_time_title">Amser targed i wefru\u2019n llawn</string>
+    <string name="charging_control_target_time_summary">Caiff y batri ei wefru\u2019n llawn erbyn %s</string>
+    <string name="charging_control_limit_title">Terfyn</string>
     <string name="battery_light_title">Golau batri</string>
     <string name="battery_light_enable_title">Galluogi golau batri</string>
     <string name="battery_low_pulse_title">Curiad os yw\'r batri\'n isel</string>
@@ -84,6 +83,7 @@
     <string name="notification_light_automagic_summary">Yn dewis lliwiau\'n awtomatig</string>
     <string name="led_notification_title">Gosodiadau goleuadau</string>
     <string name="led_notification_text">Golau LED wedi\'i alluogi gan osodiadau</string>
+    <string name="notification_light_add_apps_empty_summary">I ychwanegu rheolaeth ap, rho \'%1$s\' ar waith a phwyso \'Ychwanegu\'</string>
     <string name="live_display_summary">Addasa dy sgrin i\'r gorau yn dibynnu ar yr amser o\'r dydd ac amgylchiadau amgylchynol fel ei bod yn haws darllen a bod llai o straen ar y llygaid.</string>
     <string name="live_display_mode">Modd dangosydd</string>
     <string name="live_display_color_temperature_title">Tymheredd lliwiau</string>
@@ -211,6 +211,7 @@
     <string name="navigation_bar_app_switch_long_press_title">Gweithred gwasgiad hir o\'r botwm eitemau diweddar</string>
     <string name="navigation_bar_edge_long_swipe_title">Gweithred llusgiad hir o\'r ymyl</string>
     <string name="power_menu_title">Dewislen pŵer</string>
+    <string name="power_menu_items_title">Eitemau dewislen pŵer</string>
     <string name="power_menu_screenshot_title">Sgrinlun</string>
     <string name="power_menu_screenshot_summary">Gwasgiad hir am sgrinlun rhannol</string>
     <string name="power_menu_airplane_title">Modd awyren</string>
@@ -219,6 +220,10 @@
     <string name="power_menu_bug_report_devoptions_unavailable">Mae adrodd ar wallau wedi ei analluogi gan nad yw\'r gosodiadau datblygu wedi eu galluogi</string>
     <string name="power_menu_bug_report_unavailable_for_user">Mae adrodd ar wallau wedi ei analluogi ar gyfer defnyddwyr nad ydynt yn brif ddefnyddwyr</string>
     <string name="power_menu_emergency_title">Argyfwng</string>
+    <string name="power_menu_devicecontrols_title">Rheolyddion dyfais</string>
+    <string name="power_menu_advanced_restart_title">Ailgychwyn arbennig</string>
+    <string name="power_menu_advanced_restart_summary">Pan wedi datgloi, cynnwys opsiynau yn y ddewislen pŵer i ailgychwyn y system neu ailgychwyn i\'r modd adfer</string>
+    <string name="power_menu_emergency_affordance_enabled">Mae gallu argyfwng wedi\'i alluogi</string>
     <string name="camera_double_tap_power_gesture_title">Gwasgu\'r botwm pŵer dwywaith am y camera</string>
     <string name="camera_double_tap_power_gesture_desc">Agor y camera yn gyflym heb orfod datgloi dy sgrin</string>
     <string name="torch_long_press_power_gesture_title">Dal yn hir i lansio\'r fflacholau</string>
@@ -350,6 +355,7 @@
     <string name="status_bar_clock_show_seconds_title">Dangos eiliadau</string>
     <string name="status_bar_clock_show_seconds_summary">Dangos oriau, munudau ac eiliadau</string>
     <string name="status_bar_clock_auto_hide_title">Cuddio\'n awtomatig</string>
+    <string name="status_bar_clock_auto_hide_summary">Cuddio\'r cloc os yw\'r lansiwr yn weladwy</string>
     <string name="status_bar_clock_position_title">Lleoliad cloc</string>
     <string name="status_bar_clock_position_right">De</string>
     <string name="status_bar_clock_position_left">Chwith</string>
@@ -376,8 +382,6 @@
     <string name="status_bar_brightness_slider_show_never">Byth dangos</string>
     <string name="status_bar_brightness_slider_show_expanded">Dangos pan wedi\'i ehangu</string>
     <string name="status_bar_brightness_slider_show_always">Dangos o hyd</string>
-    <string name="status_bar_toggle_brightness">Rheolaeth disgleirdeb</string>
-    <string name="status_bar_toggle_brightness_summary">Addasu\'r disgleirdeb wrth lithro ar draws y bar statws</string>
     <string name="network_traffic_settings_title">Monitro traffig rhwydwaith</string>
     <string name="network_traffic_settings_summary">Dangos lefel traffig rhwydwaith cyfredol yn y bar statws</string>
     <string name="network_traffic_mode_title">Modd dangosydd</string>
@@ -385,6 +389,7 @@
     <string name="network_traffic_mode_up">Uwchlwytho yn unig</string>
     <string name="network_traffic_mode_down">Lawrlwytho yn unig</string>
     <string name="network_traffic_mode_all">Uwchlwytho a lawrlwytho</string>
+    <string name="network_traffic_position_title">Safle</string>
     <string name="network_traffic_autohide">Cuddio\'n awtomatig</string>
     <string name="network_traffic_autohide_summary">Cuddio\'r monitor traffig pan nad oes weithgarwch</string>
     <string name="network_traffic_units_title">Unedau mesur traffig</string>
@@ -392,7 +397,11 @@
     <string name="network_traffic_units_megabits">Megadidau\'r eiliad (Mb/e)</string>
     <string name="network_traffic_units_kilobytes">Cilobeitiau\'r eiliad (kB/e)</string>
     <string name="network_traffic_units_megabytes">Megabeitiau\'r eiliad (MB/e)</string>
+    <string name="network_traffic_units_auto">Awtomatig (kB/e neu MB/e)</string>
     <string name="network_traffic_show_units">Dangos unedau</string>
+    <string name="network_traffic_show_units_off">I ffwrdd</string>
+    <string name="network_traffic_show_units_on">Ymlaen</string>
+    <string name="network_traffic_show_units_compact">Cryno</string>
     <string name="network_traffic_show_units_summary">Dangos unedau mesur traffig yn y bar statws</string>
     <string name="network_traffic_disabled_clock">Mae traffig rhwydwaith wedi\'i analluogi oherwydd lleoliad y cloc</string>
     <string name="protected_apps_manager_title">Apiau wedi\'u gwarchod</string>
@@ -513,6 +522,10 @@
     <string name="trust_onboarding_learn_more">Dysgu mwy</string>
     <string name="trust_onboarding_done">Deall yn iawn</string>
     <string name="trust_restrict_usb_title">Cyfyngu USB</string>
+    <string name="trust_restrict_usb_summary">Rheoli cefnogaeth ar gyfer cysylltiadau USB fel clustffonau, dyfeisiau storio, mewnbynnau (bysellfwrdd, llygoden, ffon reoli), ac ADB</string>
+    <string name="trust_restrict_usb_always">Gwrthod cysylltiadau USB</string>
+    <string name="trust_restrict_usb_keyguard">Caniatáu cysylltiadau USB pan wedi\'i ddatgloi</string>
+    <string name="trust_restrict_usb_disabled">Caniatáu cysylltiadau USB o hyd</string>
     <string name="sms_security_check_limit_title">Cyfyngiad negeseuon SMS</string>
     <string name="sms_security_check_limit_summary">Gall apiau anfon hyd at %s neges o fewn 1 munud cyn bod angen cadarnhad.</string>
     <string name="sms_security_check_limit_summary_none">Ni chaiff apiau anfon unrhyw negeseuon heb gael cadarnhad</string>

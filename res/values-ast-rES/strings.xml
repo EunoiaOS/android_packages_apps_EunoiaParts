@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Copyright (C) 2015 The CyanogenMod Project
-	              2024 The EunoiaOS Project
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
+     SPDX-FileCopyrightText: 2015 The CyanogenMod Project
+     SPDX-FileCopyrightText: 2024 The EunoiaOS Project
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="eunoiaparts_title">Axustes de EunoiaOS</string>
+    <string name="eunoiaparts_title">Configuración de EunoiaOS</string>
     <string name="loading">Cargando\u2026</string>
     <string name="dlg_ok">D\'acuerdu</string>
     <string name="cancel">Encaboxar</string>
-    <string name="settings">Axustes</string>
+    <string name="settings">Configuración</string>
     <string name="name">Nome</string>
     <string name="back">Atrás</string>
     <string name="finish">Finar</string>
@@ -31,6 +20,20 @@
     <string name="dialog_delete_message">¿Quies quitar l\'elementu seleicionáu?</string>
     <string name="brightness">Nivel del brillu</string>
     <string name="light_brightness_zen">Nun molestar</string>
+    <string name="charging_control_title">Control de la carga</string>
+    <string name="charging_control_enable_title">Activar el control de la carga</string>
+    <string name="charging_control_mode_title">Mou de la carga</string>
+    <string name="charging_control_mode_auto_title">Programación automática</string>
+    <string name="charging_control_mode_auto_summary">Determina automáticamente cuándo comienza la carga según les alarmes configuraes</string>
+    <string name="charging_control_mode_custom_title">Programación personalizada</string>
+    <string name="charging_control_mode_custom_summary">Configura una hora pa completar la carga</string>
+    <string name="charging_control_mode_limit_title">Llendar la carga</string>
+    <string name="charging_control_mode_limit_summary">Llenda la carga a un porcentaxe concretu</string>
+    <string name="charging_control_start_time_title">Hora d\'aniciu</string>
+    <string name="charging_control_start_time_summary">El control de la carga actívase cuando anicies la carga dempués de la hora configurada (%s)</string>
+    <string name="charging_control_target_time_title">Hora del fin de la carga</string>
+    <string name="charging_control_target_time_summary">La batería va cargase completamente a la hora configurada (%s)</string>
+    <string name="charging_control_limit_title">Llende</string>
     <string name="battery_light_enable_title">Activar la lluz de la batería</string>
     <string name="battery_low_pulse_title">Parpaguiar si queda poca batería</string>
     <string name="battery_light_full_charge_disabled_title">Apagar al completar la carga</string>
@@ -40,6 +43,7 @@
     <string name="notification_light_general_title">Xeneral</string>
     <string name="notification_light_applist_title">Aplicaciones</string>
     <string name="notification_light_missed_call_title">Llamada perdida</string>
+    <string name="notification_light_add_apps_empty_summary">P\'amestar un control per aplicación, activa «%1$s» y primi «Amestar»</string>
     <string name="live_display_color_temperature_summary">Día: <xliff:g id="day_temperature">%1$d</xliff:g> K  Nueche: <xliff:g id="night_temperature">%2$d</xliff:g> K</string>
     <string name="live_display_color_temperature_label"><xliff:g id="degrees">%1$d</xliff:g> K</string>
     <string name="live_display_day">Día</string>
@@ -113,7 +117,7 @@
     <string name="power_menu_title">Menú d\'apagáu</string>
     <string name="power_menu_items_title">Elementos del menú d\'apagáu</string>
     <string name="power_menu_airplane_title">Mou avión</string>
-    <string name="power_menu_bug_report_devoptions_unavailable">L\'informe de fallos ta desactiváu darréu que los axustes de desendolcu nun tán activaos</string>
+    <string name="power_menu_bug_report_devoptions_unavailable">L\'informe de fallos ta desactiváu darréu que la configuración de desendolcu nun tán activaos</string>
     <string name="power_menu_bug_report_unavailable_for_user">L\'informe de fallos ta desactiváu pa usuarios que nun son primarios.</string>
     <string name="power_menu_emergency_title">Emerxencia</string>
     <string name="power_menu_devicecontrols_title">Controles de preseos</string>
@@ -175,25 +179,27 @@
     <string name="status_bar_battery_percentage_text_next">Al llau del iconu</string>
     <string name="status_bar_brightness_category">Brillu</string>
     <string name="status_bar_brightness_slider_title">Eslizador del brillu</string>
-    <string name="status_bar_brightness_slider_summary">Axusta\'l brillu dende los axustes rápidos</string>
+    <string name="status_bar_brightness_slider_summary">Axusta\'l brillu dende la configuración rápida</string>
     <string name="status_bar_brightness_slider_auto_title">Brillu automáticu</string>
     <string name="status_bar_brightness_slider_auto_summary">Amuesa l\'alternador del brillu adautable cierca l\'eslizador</string>
     <string name="status_bar_brightness_slider_show_never">Nun amosar enxamás</string>
     <string name="status_bar_brightness_slider_show_expanded">Amosar al espander</string>
     <string name="status_bar_brightness_slider_show_always">Amosar siempres</string>
-    <string name="status_bar_toggle_brightness">Control del brillu</string>
-    <string name="status_bar_toggle_brightness_summary">Axusta\'l brillu al eslizar el deu pela barra d\'estáu</string>
     <string name="network_traffic_settings_title">Supervisor del tránsitu de rede</string>
     <string name="network_traffic_settings_summary">Amuesa\'l nivel del tránsitu de rede na barra d\'estáu</string>
+    <string name="network_traffic_mode_title">Mou de visualización</string>
     <string name="network_traffic_mode_up">Namás la xuba</string>
     <string name="network_traffic_mode_down">Namás la baxada</string>
     <string name="network_traffic_mode_all">Xuba y baxada</string>
+    <string name="network_traffic_position_title">Posición</string>
     <string name="network_traffic_autohide_summary">Anubre\'l supervisor del tránsitu de rede cuando nun hai actividá</string>
     <string name="network_traffic_units_title">Unidaes de midida del tránsitu</string>
-    <string name="network_traffic_units_kilobits">Kilobits per segundu (kb/s)</string>
+    <string name="network_traffic_units_kilobits">Kilobits per segundu (Kb/s)</string>
     <string name="network_traffic_units_megabits">Megabits per segundu (Mb/s)</string>
-    <string name="network_traffic_units_kilobytes">Kilobytes per segundu (kB/s)</string>
+    <string name="network_traffic_units_kilobytes">Kilobytes per segundu (KB/s)</string>
     <string name="network_traffic_units_megabytes">Megabytes per segundu (MB/s)</string>
+    <string name="network_traffic_units_auto">Automáticu (KB/s o MB/s)</string>
+    <string name="network_traffic_show_units_compact">Compautu</string>
     <string name="network_traffic_disabled_clock">El supervisor del tránsitu de rede ta desactiváu pola mor de la posición del reló</string>
     <string name="protected_apps_manager_title">Aplicaciones protexíes</string>
     <string name="contributors_cloud_fragment_title">Collaboradores</string>
@@ -225,6 +231,7 @@
     <string name="charging_sounds_notification_category_title">Soníos d\'avisu</string>
     <string name="wired_charging_sounds_title">Carga per cable</string>
     <string name="wireless_charging_sounds_title">Carga ensin filos</string>
+    <string name="touchscreen_gestures_haptic_feedback_title">Rempuesta háptica</string>
     <string name="touchscreen_gesture_single_tap_title">Un toque</string>
     <string name="touchscreen_gesture_action_do_nothing">Nun facer nada</string>
     <string name="touchscreen_gesture_action_ambient_display">Amosar la visualización d\'ambiente</string>
@@ -258,6 +265,7 @@
     <string name="trust_restrict_usb_always">Negar les conexones USB</string>
     <string name="trust_restrict_usb_keyguard">Permitir les conexones USB al desbloquiar</string>
     <string name="trust_restrict_usb_disabled">Permitir siempres les conexones USB</string>
+    <string name="trust_summary">Caltién el preséu seguru ya protexe la to privacidá</string>
     <string name="sms_security_check_limit_title">Llende de mensaxes SMS</string>
     <string name="sms_security_check_limit_summary">Les aplicaciones puen unviar %s mensaxes nun minutu enantes de riquir la confirmación</string>
     <string name="sms_security_check_limit_summary_none">Les aplicaciones nun tienen permisu pa unviar nengún mensaxe ensin la confirmación</string>
